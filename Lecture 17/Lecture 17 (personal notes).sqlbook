@@ -1,5 +1,5 @@
 -- SQLBook: Markup
-# <span style="color:darkblue"> Lecture 17 - Introduction to SQL </span>
+# <span style="color:lightblue"> Lecture 17 - Introduction to SQL </span>
 
 <font size = "5">
 
@@ -9,7 +9,7 @@ SQL is a language specializing in database management
 - Typical task is to extract data from server
 - Many concepts are similar to Python
 -- SQLBook: Markup
-# <span style="color:darkblue"> I. Connect to Local Server </span>
+# <span style="color:lightblue"> I. Connect to Local Server </span>
 
 <font size="5"> 
 
@@ -30,7 +30,7 @@ panel on the left:
 
 <img src="figures/serverconnection_sql_vscode-3.png" alt="drawing" width="300"/>
 -- SQLBook: Markup
-# <span style="color:darkblue"> II. Create SQL Table from Scratch </span>
+# <span style="color:lightblue"> II. Create SQL Table from Scratch </span>
 -- SQLBook: Markup
 <font size = "5">
 
@@ -99,11 +99,12 @@ Try it yourself!
 -- Select a new driver id (needs to be unique)
 -- Make sure to deparate arguments by a semicolon!
 
+INSERT INTO drivers  VALUES (11, 'Joyce Chen', 'Canadian', 6);
 
-
+INSERT INTO drivers  VALUES (9, 'Gong Li', 'Chinese', 83);
 
 -- SQLBook: Markup
-# <span style="color:darkblue"> II. Dataset Operations </span>
+# <span style="color:lightblue"> II. Dataset Operations </span>
 
 
 <font size="5"> 
@@ -113,7 +114,7 @@ Extracting columns from table
 -- SELECT extracts certain COLUMNS
 -- FROM is used to indicate the source table
 
-SELECT driver_id nationality FROM drivers;
+SELECT driver_id, nationality FROM drivers;
 -- SQLBook: Markup
 <font size="5"> 
 
@@ -127,12 +128,14 @@ SELECT * FROM drivers;
 Subsetting rows
 -- SQLBook: Code
 -- The WHERE command evaluates logical conditions to subset rows
+-- use '' for pg_logical_slot_get_binary_changes
+-- use = instead of ==
 SELECT * FROM drivers
 WHERE nationality = 'German';
 
 -- Evalute OR conditions
 SELECT * FROM drivers
-WHERE (nationality = 'German') OR (nationality = 'British');
+WHERE (nationality = 'Canadian') OR (nationality = 'Chinese');
 
 -- Evaluate AND conditions
 SELECT * FROM drivers
@@ -188,12 +191,11 @@ with more than 60 victories
 -- SQLBook: Code
 -- Write your own code!
 
-
-
-
+SELECT nationality, driver_id FROM drivers
+WHERE victories < 60;
 
 -- SQLBook: Markup
-# <span style="color:darkblue"> III. Groupby + Chaining </span>
+# <span style="color:lightblue"> III. Groupby + Chaining </span>
 
 <font size="5"> 
 
@@ -245,7 +247,7 @@ WHERE nationality = 'German'
 GROUP BY nationality
 HAVING SUM(victories) > 50;
 -- SQLBook: Markup
-# <span style="color:darkblue"> IV. Learning more </span>
+# <span style="color:INSERT INTO drivers  VALUES (3, 'Sebastian Vettel', 'German',91);blue"> IV. Learning more </span>
 
 <font size = "5">
 
